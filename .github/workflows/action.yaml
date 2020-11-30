@@ -5,13 +5,28 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
-    - name: SSH Remote Commands
-      uses: appleboy/ssh-action@v0.1.4
+    - uses: actions/checkout@v1
+
+    - name: Copy repository contents via scp
+      uses: appleboy/scp-action@master
+      env:
+        HOST: ${{ secrets.HOST }}
+        USERNAME: ${{ secrets.USERNAME }}
+        PORT: ${{ secrets.PORT }}
+        KEY: ${{ secrets.SSHKEY }}
+      with:
+        source: "."
+        target: "/var/www/"
+
+    - name: Executing remote command
+      uses: appleboy/ssh-action@master
       with:
         host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        key: ${{ secrets.SSHKEY }}
-        port: ${{ secrets.PORT }}
+        USERNAME: ${{ secrets.USERNAME }}
+        PORT: ${{ secrets.PORT }}
+        KEY: ${{ secrets.SSHKEY }}
         script: |
-          whoami
-          ls -l
+          apt install python3-pip
+          cd /var/www/
+          pip install -r requirements.txt
+          python3 src/app.py
