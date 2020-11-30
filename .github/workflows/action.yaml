@@ -1,5 +1,10 @@
 name: remote ssh command
-on: [push]
+on:
+  # Trigger the workflow on push or pull request,
+  # but only for the main branch
+  push:
+    branches:
+      - master
 jobs:
   build:
     name: Build
@@ -27,4 +32,6 @@ jobs:
         KEY: ${{ secrets.SSHKEY }}
         script: |
           ls -al
+          git checkout new_branch
+          cat file.txt
           
