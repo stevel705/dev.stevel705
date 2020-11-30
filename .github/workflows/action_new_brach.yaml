@@ -4,7 +4,7 @@ on:
   # but only for the main branch
   push:
     branches:
-      - master
+      - new_branch
 jobs:
   build:
     name: Build
@@ -21,7 +21,7 @@ jobs:
         KEY: ${{ secrets.SSHKEY }}
       with:
         source: "."
-        target: "/home/ubuntu/"
+        target: "/home/ubuntu/www"
 
     - name: Executing remote command
       uses: appleboy/ssh-action@master
@@ -31,6 +31,6 @@ jobs:
         PORT: ${{ secrets.PORT }}
         KEY: ${{ secrets.SSHKEY }}
         script: |
-          ls -al
-          echo "Hello world"
+          git checkout new_branch
+          cat file.txt
           
