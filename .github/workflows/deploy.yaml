@@ -34,6 +34,46 @@ jobs:
           name: react-github-actions-build
           path: build
 
+  deploy:
+    runs-on: ubuntu-latest
+    # When application is successfully tested and build has been generated
+    # Then we can start with deployment
+    needs: build
+    steps:
+      # Download previously shared build
+      - name: Get artifact
+        uses: actions/download-artifact@v1
+        with:
+          name: react-github-actions-build
+      
+      - name: Copy repository contents via scp
+        uses: appleboy/scp-action@master
+        env:
+          HOST: ${{ secrets.HOST }}
+          USERNAME: ${{ secrets.USERNAME }}
+          PORT: ${{ secrets.PORT }}
+          KEY: ${{ secrets.SSHKEY }}
+        with:
+          source: "react-github-actions-build"
+          target: "/home/ubuntu/www"
+      # # Set the credentials from repository settings/secrets
+      # - name: Configure AWS credentials
+      #   uses: aws-actions/configure-aws-credentials@v1
+      #   with:
+      #     aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      #     aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      #     aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
+      # - name: Push to server
+      #   uses: appleboy/ssh-action@master
+      #   with:
+      #     host: ${{ secrets.SERVER_IP }}
+      #     username: ${{ secrets.SERVER_USERNAME }}
+      #     password: ${{ secrets.SERVER_PASSWORD }}
+      #     script: cd ${{ secrets.PROJECT_PATH }} && git pull
+      # # Copy the files from build folder to the S3 bucket
+      # - name: Deploy to S3
+      #   run: aws s3 sync . s3://react-github-actions --acl public-read
+      #   working-directory: react-github-actions-build
 # jobs:
 #   deploy:
 #     # runs-on: ubuntu-latest
