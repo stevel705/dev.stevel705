@@ -5,8 +5,8 @@ on:
   push:
     branches:
       - front
-  pull_request:
-      - front
+  # pull_request:
+  #     - front
 
 jobs:
   deploy:
