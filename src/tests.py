@@ -18,7 +18,7 @@ class FlaskAppTests(unittest.TestCase):
 
     def test_get_api_endpoint(self):
         r = self.app.get('/api')
-        self.assertEqual(r.json, {'status': 'test'})
+        self.assertEqual(r.json, {'status': 'test_build'})
 
     def test_correct_post_api_endpoint(self):
         r = self.app.post('/api',
