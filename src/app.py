@@ -16,6 +16,10 @@ def validate_post_data(data: dict) -> bool:
 def hello():
     return 'Hello World!'
 
+@app.route('/test_docker', methods=['GET'])
+def test_docker():
+    return 'Hello Docker Build!!'
+
 @app.route('/api', methods=['GET', 'POST'])
 def api():
     """
