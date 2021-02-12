@@ -26,7 +26,7 @@ if [ $(docker inspect -f '{{.State.Running}}' $CONAINER_NAME) = "true" ]; then
     sudo docker stop test_action
 fi
 
-echo "Starting Hello World using Docker Image name: $DOCKER_IMAGE"
+echo "Starting app using Docker Image name: $DOCKER_IMAGE"
 
 sudo docker build -t test_action .
 

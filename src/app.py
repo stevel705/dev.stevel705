@@ -18,7 +18,7 @@ def hello():
 
 @app.route('/test_docker', methods=['GET'])
 def test_docker():
-    return 'Hello Docker Build!!'
+    return 'Hello Docker Build! And thanks for all fish!'
 
 @app.route('/api', methods=['GET', 'POST'])
 def api():
