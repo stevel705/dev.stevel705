@@ -28,7 +28,7 @@ def api():
     :return:
     """
     if request.method == 'GET':
-        return jsonify({'status': 'test_build'})
+        return jsonify({'status': 'test'})
     elif request.method == 'POST':
         if validate_post_data(request.json):
             return jsonify({'status': 'OK'})
