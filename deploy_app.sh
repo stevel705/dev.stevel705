@@ -23,11 +23,11 @@ echo "Deploying Hello World to Docker Container"
 
 #Check for running container & stop it before starting a new one
 if [ $(docker inspect -f '{{.State.Running}}' $CONAINER_NAME) = "true" ]; then
-    docker stop test_action
+    sudo docker stop test_action
 fi
 
 echo "Starting Hello World using Docker Image name: $DOCKER_IMAGE"
 
-docker run -d --rm=true -p 80:5000  --name test_action $DOCKER_IMAGE
+sudo docker run -d --rm=true -p 80:5000  --name test_action $DOCKER_IMAGE
 
-docker ps -a
+sudo docker ps -a
