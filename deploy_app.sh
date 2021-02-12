@@ -30,6 +30,6 @@ echo "Starting Hello World using Docker Image name: $DOCKER_IMAGE"
 
 sudo docker build -t test_action .
 
-sudo docker run -d --rm=true -p 80:5000  --name test_action $DOCKER_IMAGE
+sudo docker run -d --rm=true -p 5000:5000  --name test_action $DOCKER_IMAGE
 
 sudo docker ps -a
