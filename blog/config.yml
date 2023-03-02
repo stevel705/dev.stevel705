@@ -1,0 +1,39 @@
+baseURL: ""
+languageCode: en-us
+title: dev.stevel705
+theme: PaperMod
+
+params:
+
+  homeInfoParams:
+    Title: "Hello, I'm Alex"
+    Content: "A blog about software development, deep learning, and other things."
+  
+  socialIcons:
+    - name: github
+      url: "https://github.com/stevel705"
+    - name: telegram
+      url: "https://t.me/stevel705"
+
+  cover: 
+    linkFullImages: true
+  
+  ShowBreadCrumbs: true
+  ShowReadingTime: true
+  ShowShareButtons: true
+  ShowPostNavLinks: true
+
+menu:
+  main:
+    - identifier: categories
+      name: Categories
+      url: /categories/
+      weight: 10
+    - identifier: tags
+      name: Tags
+      url: /tags/
+      weight: 20
+    - identifier: archives
+      name: Archives
+      url: /archives/
+      weight: 30
