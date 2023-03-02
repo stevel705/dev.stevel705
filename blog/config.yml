@@ -1,4 +1,4 @@
-baseURL: ""
+baseURL: "https://dev-stevel705.vercel.app/"
 languageCode: en-us
 title: dev.stevel705
 theme: PaperMod
