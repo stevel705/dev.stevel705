@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>html on dev.stevel705</title>
+    <link>https://dev-stevel705.vercel.app/tags/html/</link>
+    <description>Recent content in html on dev.stevel705</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 28 Feb 2023 17:32:01 +0300</lastBuildDate><atom:link href="https://dev-stevel705.vercel.app/tags/html/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>First</title>
+      <link>https://dev-stevel705.vercel.app/posts/first/</link>
+      <pubDate>Tue, 28 Feb 2023 17:32:01 +0300</pubDate>
+      
+      <guid>https://dev-stevel705.vercel.app/posts/first/</guid>
+      <description>This is my first post Hello world! This is example post! Go next!</description>
+    </item>
+    
+  </channel>
+</rss>
