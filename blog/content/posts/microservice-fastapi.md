@@ -1,14 +1,9 @@
 ---
-title: "Microservice on FastAPI"
-date: 2023-05-28T12:12:01+03:00
-draft: false
-cover:
-    image: img/1.png
-    alt: 'This is a post image'
-    caption: 'This is the caption'
-tags: ["html", "css"]
-categories: ["tech"]
+title: "Microservice Fastapi"
+date: 2023-05-03T12:25:32+03:00
+draft: False
 ---
+
 
 # Structure of project microservice on FastAPI 
 
@@ -73,3 +68,43 @@ Here's a brief overview of what each directory and file contains:
 - `README.md`: This file contains information about your application, such as how to install and run it.
 
 Of course, this is just one example of how you could structure your FastAPI microservices. You should adapt it to fit the specific needs of your project. However, this structure should give you a good starting point and help you organize your code in a scalable and maintainable way.
+
+
+# Docker compose file
+
+Sure, here's an example `docker-compose.yml` file for the project structure I suggested in the previous answer:
+
+```yaml
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo
+    restart: always
+    ports:
+      - "27017:27017"
+```
+
+Here's what this `docker-compose.yml` file does:
+
+- The `app` service builds the Docker image using the `Dockerfile` in the current directory. It then starts the FastAPI application using `uvicorn`, which listens on port `8000` and is exposed to the host machine through port `8000`.
+
+- The `mongo` service uses the official `mongo` Docker image and exposes port `27017`, which is used by the FastAPI application to connect to the database.
+
+- The `env_file` option specifies the path to the `.env` file, which contains the environment variables used by the FastAPI application.
+
+- The `depends_on` option specifies that the `app` service depends on the `mongo` service. This ensures that the database is up and running before the application tries to connect to it.
+
+You can run this `docker-compose.yml` file using the `docker-compose up` command in the directory containing the file.
