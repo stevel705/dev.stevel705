@@ -1,10 +1,12 @@
-
 ---
-title: "First"
-date: 2023-05-03T12:00:01+03:00
+title: "Microservice on FastAPI"
+date: 2023-05-28T12:12:01+03:00
 draft: false
-
-tags: ["arch", "fastapi"]
+cover:
+    image: img/1.png
+    alt: 'This is a post image'
+    caption: 'This is the caption'
+tags: ["html", "css"]
 categories: ["tech"]
 ---
 
